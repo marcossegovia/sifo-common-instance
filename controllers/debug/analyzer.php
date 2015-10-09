@@ -2,7 +2,7 @@
 
 namespace Common;
 
-use Sifo\DebugDataBaseHandler;
+use Sifo\Debug\DataBaseHandler;
 
 class DebugAnalyzerController extends \Sifo\Controller
 {
@@ -25,7 +25,7 @@ class DebugAnalyzerController extends \Sifo\Controller
 	{
 		parent::__construct();
 
-		$this->debug_persistence_handler = new DebugDataBaseHandler();
+		$this->debug_persistence_handler = new DataBaseHandler();
 	}
 
 	function build()

@@ -1,7 +1,7 @@
 <?php
 namespace Common;
 
-use Sifo\DebugDataBaseHandler;
+use Sifo\Debug\DataBaseHandler;
 
 class FilterCookieDebug extends \Sifo\FilterCookie
 {
@@ -32,7 +32,7 @@ class DebugIndexController extends \Sifo\Controller
 
 	/**
 	 * Constructs an structured array ($debug_data) with one key for each debug module.
-	 * We'll store this array on the DebugDataBaseHandler indexed by the $this->execution_key and,
+	 * We'll store this array on the DataBaseHandler indexed by the $this->execution_key and,
 	 * at the moment of recover all the debug modules data in order to show the complete debug info,
 	 * we'll recover this array and fetch the templates stored in the debug/analyzer_modules/*.tpl path based on the module name matching.
 	 *
@@ -114,7 +114,7 @@ class DebugIndexController extends \Sifo\Controller
 
 	protected function finalRender( $debug_data )
 	{
-		$database_debug_handler = new DebugDataBaseHandler();
+		$database_debug_handler = new DataBaseHandler();
 
 		$database_debug_handler->saveExecutionDebug( $this->execution_key, $this->getDebugUrl(), $debug_data, $this->getParam( 'executed_controller_is_json' ) );
 
